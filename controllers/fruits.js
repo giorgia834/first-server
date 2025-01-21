@@ -37,12 +37,12 @@ const create = async (req, res) => {
 }
 
 const update = async (req, res) => {
-    const name = req.params.name.toLowerCase()
+    const name = req.params.name.toLowerCase() //takes in value in endpoint http.....fruit
 
     try {
         const fruit = await Fruit.show(name)
-        const result = await fruit.update(req.body)
-        res.status(200).send(result)
+        const result = await fruit.update(req.body) 
+        res.status(201).send(result)
 
     } catch(err){
         res.status(404).send({error: err.message})

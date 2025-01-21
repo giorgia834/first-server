@@ -38,6 +38,7 @@ class Fruit {
     static create = (data) => {
       const newFruit = data
       const fruit = fruits.find(fruit => fruit.name.toLowerCase() === newFruit.name.toLowerCase())
+
       if(fruit){
         throw Error("The fruit already exists")
       } else {
@@ -49,9 +50,10 @@ class Fruit {
     }
 
     update(data){
-      const updatedFruit = fruits.find(fruit => fruit.name.toLowerCase() === this.name.toLowerCase())
+      const updatedFruit = fruits.find(fruit => fruit.name.toLowerCase() === this.name.toLowerCase()) //compares name of object created using Fruit.show(name)
+      //with data in req.body
       if(updatedFruit){
-        updatedFruit.name = data.name
+        updatedFruit.name = data.name //updates within req.body
         updatedFruit.family = data.family
         return new Fruit(updatedFruit)
       } else {
