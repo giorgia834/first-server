@@ -28,7 +28,7 @@ const show = (req,res)=> { //show route
 const create = async (req, res) => {
     try {
         const newFruit = await Fruit.create(req.body)
-        res.status(201).send(newFruit)
+        res.status(200).send(newFruit)
 
     } catch(err){
         res.status(409).send({error: err.message})
