@@ -7,13 +7,9 @@ const logger = require("./logger")
 //Middleware
 app.use(cors())
 app.use(express.json())
-app.use(logger) //to run on any request
+app.use(logger) //to run on any request. without brackets only used when called
 
 const fruitsRouter = require("./routes/fruits") //
-
-
-
-
 
 app.get('/', (req, res) => {
   res.send('Hello Fruity!')
@@ -22,6 +18,3 @@ app.get('/', (req, res) => {
 app.use('/fruits', fruitsRouter) //
 
 module.exports = app
-
-
-
